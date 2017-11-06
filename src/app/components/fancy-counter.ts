@@ -1,13 +1,6 @@
 
 
 (function () {
-
-    function CustomElement(name: string) {
-        return function (target: any) {
-            customElements.define(name, target);
-        };
-    }
-
     const template = document.createElement('template');
 
 
@@ -57,7 +50,6 @@
     </div>
   `;
 
-    @CustomElement('fancy-counter')
     class FancyCounter extends HTMLElement {
         minReached: CustomEvent;
         maxReached: CustomEvent;
@@ -169,10 +161,6 @@
         }
     }
 
-    // function CustomElement(name: string) {
-    //     return function (target: any) {
-    //         customElements.define(name, target);
-    //     };
-    // }
-    // window.customElements.define('fancy-counter', FancyCounter);
+
+    window.customElements.define('fancy-counter', FancyCounter);
 })();
